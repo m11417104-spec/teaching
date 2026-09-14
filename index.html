@@ -3,186 +3,472 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>祖筠老師的資源班｜陪孩子走出屬於自己的學習路</title>
-<meta name="description" content="祖筠老師的國小資源班教學網站，分享教學理念、課程資訊與數位學習資源。">
+<title>祖筠老師｜大安國小資源班</title>
+<meta name="description" content="祖筠老師的大安國小資源班教學網站，分享教學理念、課程資訊與數位學習資源。">
+
+<!-- 全站統一字體：Noto Sans TC，不再混用手寫字體 -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --ink:#294f45; --deep:#21463d; --green:#5f8b70; --sage:#dce9dc;
-  --cream:#fffaf0; --paper:#fffdf7; --gold:#d9a84e; --pink:#f4d8d0;
-  --blue:#dcecf0; --purple:#e9e0f2; --shadow:0 16px 45px rgba(64,72,53,.10);
+  --green:#3f7565;
+  --green-dark:#285649;
+  --mint:#dceee4;
+  --yellow:#f5cf73;
+  --orange:#e89b62;
+  --coral:#e98d82;
+  --blue:#78b8ca;
+  --purple:#9c88c5;
+  --cream:#fffaf1;
+  --paper:#fffdf8;
+  --text:#334d45;
+  --muted:#71817a;
+  --line:#e8e1d3;
+  --shadow:0 14px 38px rgba(51,77,69,.10);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);background:var(--cream);font-family:"Noto Sans TC",sans-serif;line-height:1.8}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(255,253,247,.94);backdrop-filter:blur(12px);border-bottom:1px solid #eee7d8}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:45px;height:45px;border-radius:50% 50% 45% 55%;background:#e7efd9;display:grid;place-items:center;font-size:25px;transform:rotate(-5deg)}
-.brand strong{display:block;font-size:20px;letter-spacing:.08em}
-.brand small{display:block;color:#718078;font-size:11px}
-nav{display:flex;gap:24px;font-size:14px}
-nav a{position:relative;padding:7px 2px}
-nav a:hover{color:var(--gold)}
-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transition:.25s}
-nav a:hover::after{transform:scaleX(1)}
-.nav-actions{display:flex;gap:8px}
-.mini-btn{border:1px solid #d7dfd3;background:#fff;border-radius:999px;padding:6px 12px;font-size:12px}
-.hero{position:relative;overflow:hidden;padding:78px 0 80px;background:linear-gradient(110deg,#fffaf0 0%,#f7f1df 52%,#e8eee1 100%)}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;border:1px solid #d6d8bd;opacity:.55}
-.hero:before{width:360px;height:360px;left:-190px;top:-80px}
-.hero:after{width:250px;height:250px;right:-100px;bottom:-110px}
-.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:55px;align-items:center}
-.kicker{display:inline-block;color:#fff;background:var(--green);border-radius:999px;padding:5px 18px;font-size:13px;margin-bottom:18px}
-.hero h1{font-family:"Ma Shan Zheng","Noto Sans TC",cursive;font-size:clamp(48px,6vw,74px);font-weight:400;line-height:1.25;margin:0 0 12px;color:var(--deep)}
-.hero h1 span{color:#b27c39}
-.hero p{font-size:17px;color:#53665e;max-width:520px}
-.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:600;border:1px solid transparent;transition:.25s}
-.btn.primary{background:var(--green);color:white;box-shadow:0 8px 20px rgba(95,139,112,.2)}
-.btn.secondary{background:#fff;border-color:#cbd9c9}
-.btn:hover{transform:translateY(-2px)}
-.illustration{min-height:390px;position:relative;border-radius:48% 52% 45% 55% / 48% 45% 55% 52%;background:#efe8d5;box-shadow:var(--shadow);overflow:hidden;border:10px solid rgba(255,255,255,.7)}
-.scene{position:absolute;inset:0;background:linear-gradient(#dfe9df 0 45%,#e9ddc7 45% 100%)}
-.window{position:absolute;left:12%;top:8%;width:40%;height:32%;border:9px solid #fff9e9;background:linear-gradient(135deg,#d9ebed,#f7eac9);box-shadow:inset 0 0 0 2px #d7cdb8}
-.plant{position:absolute;right:9%;top:12%;font-size:66px;transform:rotate(7deg)}
-.table{position:absolute;bottom:22%;left:7%;right:7%;height:14%;background:#b98b5b;border-radius:50%;transform:rotate(-2deg)}
-.teacher{position:absolute;bottom:19%;left:39%;font-size:126px;filter:drop-shadow(0 7px 3px rgba(0,0,0,.08))}
-.kids{position:absolute;bottom:17%;right:8%;font-size:65px}
-.books{position:absolute;bottom:12%;left:11%;font-size:44px}
-.doodle{font-family:"Ma Shan Zheng",cursive;color:#53735e;position:absolute;z-index:2}
-.d1{top:7%;right:8%;font-size:28px;transform:rotate(7deg)}
-.d2{left:5%;bottom:6%;font-size:24px;color:#bd8a3e}
-.section{padding:82px 0}
-.section.alt{background:#f3f5e9}
-.section-title{text-align:center;margin-bottom:45px}
-.section-title .eyebrow{font-size:13px;letter-spacing:.2em;color:#aa7b3e}
-.section-title h2{font-family:"Ma Shan Zheng","Noto Sans TC",cursive;font-size:43px;font-weight:400;margin:5px 0;color:var(--deep)}
-.section-title p{margin:0;color:#718078}
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:start}
-.note{background:var(--paper);padding:34px;border-radius:12px 35px 14px 30px;box-shadow:var(--shadow);border:1px solid #eee6d5;position:relative}
-.note:before{content:"";position:absolute;inset:9px;border:1px dashed #d6cdbb;border-radius:8px 29px 10px 24px;pointer-events:none}
-.note>*{position:relative}
-.note h3{font-family:"Ma Shan Zheng",cursive;font-size:32px;font-weight:400;margin:0 0 12px}
-.info-list{display:grid;gap:16px}
-.info{display:flex;gap:15px;align-items:flex-start;padding:15px 0;border-bottom:1px dashed #d7ddd1}
-.icon{font-size:25px}
-.info b{display:block;color:var(--deep)}
-.info span{font-size:14px;color:#687a71}
-.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.course{padding:24px;border-radius:18px;background:#fff;border:1px solid #eee5d7;display:flex;gap:16px;align-items:center;transition:.25s;box-shadow:0 8px 24px rgba(60,75,50,.05)}
-.course:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.course:nth-child(1){background:#fff1ee}.course:nth-child(2){background:#eef6f8}.course:nth-child(3){background:#eef6ec}.course:nth-child(4){background:#f2ebf8}.course:nth-child(5){background:#fff7dd;grid-column:1/-1}
-.course .circle{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:24px;flex:none}
-.course h3{margin:0;font-size:18px}.course p{margin:1px 0 0;font-size:13px;color:#718078}
-.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.feature{background:#fffdf8;border-radius:30px;padding:30px 20px;text-align:center;border:1px solid #eee9dc;box-shadow:0 10px 28px rgba(61,79,58,.06)}
-.feature .big{font-size:43px}.feature h3{font-family:"Ma Shan Zheng",cursive;font-size:25px;font-weight:400;margin:7px 0}.feature p{font-size:13px;color:#718078}
-.parent{background:#f9efda;border-radius:28px;padding:45px;display:grid;grid-template-columns:1fr .85fr;gap:45px;align-items:center;box-shadow:var(--shadow)}
-.parent h2{font-family:"Ma Shan Zheng",cursive;font-size:40px;font-weight:400;margin:0}.quote{font-size:18px}.portal{background:#fffdf8;border:1px solid #eadcbf;border-radius:22px;padding:25px}.portal strong{font-size:19px}.portal ul{margin:12px 0;padding-left:20px;color:#718078;font-size:14px}
-.resource-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.resource{background:#fff;padding:23px 12px;text-align:center;border-radius:20px;border:1px solid #eee6d9;transition:.2s}.resource:hover{transform:translateY(-3px)}.resource .emoji{font-size:32px}.resource b{display:block;margin-top:7px}.resource small{color:#819087}
-footer{background:#2c5a4c;color:#edf4e8;padding:45px 0 20px}
-.footer-grid{display:grid;grid-template-columns:1.3fr .7fr 1fr;gap:35px;align-items:center}
-footer h3{font-family:"Ma Shan Zheng",cursive;font-size:31px;font-weight:400;margin:0}
-footer p,footer li{font-size:13px;color:#dce9df}
-.qr{width:105px;height:105px;background:#fff;display:grid;place-items:center;color:#285144;margin:auto;border-radius:8px;font-size:40px}
-.copyright{border-top:1px solid rgba(255,255,255,.18);margin-top:30px;padding-top:15px;text-align:center;font-size:11px;color:#c9d9cf}
-.reveal{opacity:0;transform:translateY(18px);transition:.7s}.reveal.show{opacity:1;transform:none}
-@media(max-width:900px){
-  nav{display:none}.nav-actions{display:none}.hero-grid,.about-grid,.parent{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.resource-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr;text-align:center}.hero{padding-top:50px}.illustration{min-height:320px}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:"Noto Sans TC",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.8;
 }
-@media(max-width:560px){
-  .nav{height:66px}.brand strong{font-size:17px}.hero h1{font-size:50px}.course-grid,.feature-grid{grid-template-columns:1fr}.course:nth-child(5){grid-column:auto}.parent{padding:28px}.section{padding:60px 0}
+a{color:inherit;text-decoration:none}
+.container{width:min(1140px,92%);margin:auto}
+
+/* ---------- 導覽 ---------- */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,253,248,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(232,225,211,.9);
+}
+.nav{
+  min-height:76px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:45px;height:45px;border-radius:15px 22px 17px 22px;
+  background:var(--mint);
+  display:grid;place-items:center;font-size:24px;
+  transform:rotate(-4deg);
+}
+.logo-title{font-weight:800;font-size:19px;color:var(--green-dark);letter-spacing:.04em}
+.logo-sub{font-size:11px;color:var(--muted);margin-top:-2px}
+nav{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600}
+nav a{padding:8px 2px;position:relative}
+nav a:after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:3px;
+  border-radius:10px;background:var(--yellow);transform:scaleX(0);transition:.25s;
+}
+nav a:hover:after{transform:scaleX(1)}
+.nav-btn{
+  border:0;background:var(--green);color:white;border-radius:999px;
+  padding:9px 15px;font-weight:700;font-family:inherit;cursor:pointer;
+}
+.nav-btn:hover{background:var(--green-dark)}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:78px 0 92px;
+  background:
+    radial-gradient(circle at 7% 18%,rgba(245,207,115,.24) 0 70px,transparent 71px),
+    radial-gradient(circle at 95% 75%,rgba(120,184,202,.18) 0 110px,transparent 111px),
+    linear-gradient(135deg,#fffaf1,#eef5e9);
+}
+.hero:before{
+  content:"";position:absolute;left:-80px;bottom:0;width:230px;height:150px;
+  border-radius:50% 50% 0 0;background:rgba(220,238,228,.8);
+  transform:rotate(-7deg);
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 16px;border-radius:999px;
+  background:var(--green);color:white;font-size:13px;font-weight:700;
+}
+.hero h1{
+  margin:20px 0 12px;
+  font-size:clamp(42px,6vw,70px);
+  line-height:1.22;letter-spacing:.03em;
+  color:var(--green-dark);
+}
+.hero h1 .accent{color:var(--orange)}
+.hero-lead{font-size:18px;color:#536960;max-width:540px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font-weight:700;
+  border:1px solid transparent;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(63,117,101,.22)}
+.btn-light{background:#fff;border-color:#d9dfd7}
+
+.hero-card{
+  position:relative;min-height:420px;
+  border-radius:42px;
+  background:#f1eadb;
+  overflow:hidden;box-shadow:var(--shadow);
+  border:9px solid rgba(255,255,255,.8);
+}
+.hero-room{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,#dce9e2 0 56%,#ead9bf 56% 100%);
+}
+.window{
+  position:absolute;left:10%;top:10%;width:44%;height:36%;
+  background:linear-gradient(135deg,#d5e8ec,#fff1cc);
+  border:8px solid #fffdf4;box-shadow:0 8px 0 rgba(91,119,101,.12);
+}
+.sun{position:absolute;right:11%;top:9%;font-size:50px}
+.plant{position:absolute;right:7%;top:24%;font-size:68px}
+.teacher{
+  position:absolute;left:37%;bottom:20%;font-size:115px;
+  filter:drop-shadow(0 7px 4px rgba(55,65,50,.12));
+}
+.children{position:absolute;right:6%;bottom:17%;font-size:62px;letter-spacing:-18px}
+.desk{
+  position:absolute;left:7%;right:7%;bottom:15%;
+  height:65px;border-radius:50%;background:#b88759;
+  transform:rotate(-2deg);
+}
+.books{position:absolute;left:12%;bottom:20%;font-size:42px}
+.doodle{
+  position:absolute;font-weight:800;color:var(--green-dark);
+  background:rgba(255,253,248,.78);padding:9px 15px;border-radius:16px;
+  font-size:14px;z-index:3;transform:rotate(3deg);
+}
+.doodle.one{right:7%;top:8%}
+.doodle.two{left:6%;bottom:5%;transform:rotate(-4deg);color:#a86f36}
+
+/* ---------- 共用 ---------- */
+.section{padding:82px 0}
+.section.alt{background:#f1f6ee}
+.section-head{text-align:center;margin-bottom:42px}
+.section-label{
+  color:var(--orange);font-size:12px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.section-head h2{
+  margin:6px 0 7px;font-size:38px;color:var(--green-dark);
+  letter-spacing:.04em;
+}
+.section-head p{margin:0;color:var(--muted)}
+
+.paper{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:26px;box-shadow:var(--shadow);
+}
+
+/* ---------- 關於我 ---------- */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}
+.about-card{padding:34px}
+.about-card h3{font-size:25px;margin:0 0 12px;color:var(--green-dark)}
+.about-card p{color:#5d7068}
+.info-list{display:grid;gap:14px}
+.info{
+  padding:21px;border-radius:20px;background:#fff;
+  border:1px solid var(--line);display:flex;gap:15px;
+  align-items:flex-start;
+}
+.info-icon{
+  width:45px;height:45px;border-radius:15px;
+  background:var(--mint);display:grid;place-items:center;font-size:22px;flex:none;
+}
+.info b{display:block;color:var(--green-dark);margin-bottom:3px}
+.info span{font-size:14px;color:var(--muted)}
+
+/* ---------- 課程 ---------- */
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.course{
+  padding:24px;border-radius:22px;border:1px solid rgba(255,255,255,.8);
+  display:flex;align-items:center;gap:17px;box-shadow:0 8px 25px rgba(60,80,65,.06);
+  transition:.22s;
+}
+.course:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.course:nth-child(1){background:#fff0ec}.course:nth-child(2){background:#eaf5f7}
+.course:nth-child(3){background:#eaf5ec}.course:nth-child(4){background:#f0eaf8}
+.course:nth-child(5){background:#fff5d8;grid-column:1/-1}
+.course-icon{
+  width:54px;height:54px;border-radius:18px;background:#fff;
+  display:grid;place-items:center;font-size:25px;flex:none;
+}
+.course h3{margin:0 0 3px;font-size:18px;color:var(--green-dark)}
+.course p{margin:0;color:var(--muted);font-size:13px}
+
+/* ---------- 教學特色 ---------- */
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.feature{
+  padding:28px 20px;text-align:center;background:#fff;
+  border:1px solid var(--line);border-radius:26px;box-shadow:0 9px 26px rgba(50,70,60,.06);
+}
+.feature-icon{
+  width:65px;height:65px;margin:auto;border-radius:50%;
+  display:grid;place-items:center;font-size:31px;
+}
+.feature:nth-child(1) .feature-icon{background:#e4f1dc}
+.feature:nth-child(2) .feature-icon{background:#fff0c9}
+.feature:nth-child(3) .feature-icon{background:#e0f0f4}
+.feature:nth-child(4) .feature-icon{background:#f1e6f4}
+.feature h3{font-size:18px;margin:14px 0 7px;color:var(--green-dark)}
+.feature p{font-size:13px;color:var(--muted);margin:0}
+
+/* ---------- 家長 ---------- */
+.parent-box{
+  padding:42px;display:grid;grid-template-columns:1fr .9fr;gap:45px;align-items:center;
+  background:linear-gradient(135deg,#fff8e6,#f5efe1);
+}
+.parent-box h2{margin:0 0 12px;font-size:31px;color:var(--green-dark)}
+.parent-box .quote{font-size:17px;color:#586c63}
+.portal{
+  background:#fff;border:1px solid #e7dcc7;border-radius:22px;padding:26px;
+}
+.portal-title{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.portal-title strong{font-size:19px;color:var(--green-dark)}
+.badge{font-size:11px;color:#fff;background:var(--coral);padding:3px 9px;border-radius:999px}
+.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}
+.portal-item{padding:10px;background:#f5f7f1;border-radius:12px;font-size:13px}
+
+/* ---------- 數位資源 ---------- */
+.resource-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.resource{
+  background:#fff;padding:24px 13px;text-align:center;border-radius:21px;
+  border:1px solid var(--line);transition:.2s;
+}
+.resource:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.resource-icon{font-size:31px}
+.resource b{display:block;margin-top:8px;color:var(--green-dark)}
+.resource small{display:block;color:var(--muted);margin-top:2px}
+
+/* ---------- 未來功能 ---------- */
+.future{
+  margin-top:30px;padding:25px;border-radius:22px;
+  background:var(--green-dark);color:white;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+}
+.future strong{font-size:18px}
+.future span{font-size:13px;color:#d9e9df}
+
+/* ---------- Footer ---------- */
+footer{background:#284f45;color:#eaf3ec;padding:48px 0 18px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:35px;align-items:center}
+footer h2{font-size:25px;margin:0 0 12px}
+footer p{font-size:13px;color:#d2e2d9;margin:6px 0}
+.contact-pill{
+  display:inline-block;margin-top:12px;padding:8px 14px;border-radius:999px;
+  background:#e4eee7;color:var(--green-dark);font-size:13px;font-weight:700;
+}
+.qr{
+  width:105px;height:105px;margin:auto;background:#fff;color:var(--green-dark);
+  border-radius:10px;display:grid;place-items:center;font-size:14px;font-weight:800;
+}
+.copyright{
+  margin-top:30px;padding-top:15px;border-top:1px solid rgba(255,255,255,.15);
+  text-align:center;font-size:11px;color:#c2d6cc;
+}
+
+/* ---------- 動畫 ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}
+.reveal.show{opacity:1;transform:none}
+
+/* ---------- RWD ---------- */
+@media(max-width:950px){
+  nav{display:none}
+  .hero-grid,.about-grid,.parent-box{grid-template-columns:1fr}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .resource-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;text-align:center}
+}
+@media(max-width:600px){
+  .nav{min-height:68px}
+  .logo-title{font-size:16px}
+  .logo-sub{font-size:10px}
+  .hero{padding:55px 0 65px}
+  .hero h1{font-size:46px}
+  .hero-lead{font-size:16px}
+  .hero-card{min-height:330px}
+  .teacher{font-size:90px}
+  .children{font-size:48px}
+  .section{padding:62px 0}
+  .section-head h2{font-size:32px}
+  .course-grid,.features,.resource-grid,.footer-grid{grid-template-columns:1fr}
+  .course:nth-child(5){grid-column:auto}
+  .parent-box{padding:28px}
+  .portal-grid{grid-template-columns:1fr 1fr}
+  .future{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="container nav">
-    <a class="brand" href="#home" aria-label="回到首頁">
-      <div class="brand-mark">🌿</div>
-      <div><strong>祖筠老師的資源班</strong><small>陪孩子走出屬於自己的學習路</small></div>
+    <a class="logo" href="#home">
+      <div class="logo-mark">🌿</div>
+      <div>
+        <div class="logo-title">祖筠老師的資源班</div>
+        <div class="logo-sub">大安國小｜陪孩子走出屬於自己的學習路</div>
+      </div>
     </a>
-    <nav>
-      <a href="#home">首頁</a><a href="#about">關於我</a><a href="#courses">我的課程</a>
-      <a href="#features">教學特色</a><a href="#parents">給家長的話</a><a href="#resources">數位資源</a><a href="#contact">聯絡我</a>
+
+    <nav aria-label="主要導覽">
+      <a href="#home">首頁</a>
+      <a href="#about">關於我</a>
+      <a href="#courses">我的課程</a>
+      <a href="#features">教學特色</a>
+      <a href="#parents">給家長的話</a>
+      <a href="#resources">數位資源</a>
+      <a href="#contact">聯絡我</a>
     </nav>
-    <div class="nav-actions"><a class="mini-btn" href="#student">👤 學生登入</a><a class="mini-btn" href="#parents">👨‍👩‍👧 家長專區</a></div>
+
+    <a class="nav-btn" href="#parents">家長專區</a>
   </div>
 </header>
 
 <main id="home">
+
 <section class="hero">
   <div class="container hero-grid">
     <div class="reveal">
-      <span class="kicker">國小資源班教師｜特殊教育專業</span>
-      <h1>你好！<br>我是<span>祖筠老師</span></h1>
-      <p>陪孩子找到自己的學習方式，<br>讓每一次進步，都值得被看見。</p>
-      <div class="cta"><a class="btn primary" href="#about">🌱 認識我</a><a class="btn secondary" href="#courses">📖 課程資訊</a></div>
+      <div class="eyebrow">🌱 大安國小資源班教師</div>
+      <h1>你好！<br>我是<span class="accent">祖筠老師</span></h1>
+      <p class="hero-lead">
+        陪孩子找到自己的學習方式，<br>
+        讓每一次努力與進步，都值得被看見。
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#about">🌿 認識祖筠老師</a>
+        <a class="btn btn-light" href="#courses">📚 看看我的課程</a>
+      </div>
     </div>
-    <div class="illustration reveal" aria-label="老師與孩子一起學習的手繪風插圖">
-      <div class="scene"></div><div class="window"></div><div class="plant">🪴</div>
-      <div class="doodle d1">每個孩子<br>都是獨特的<br>學習者 ♡</div>
-      <div class="teacher">👩🏻‍🏫</div><div class="kids">👦🏻 👧🏻</div><div class="table"></div><div class="books">📚 ✏️</div><div class="doodle d2">一起學習，一起長大</div>
+
+    <div class="hero-card reveal">
+      <div class="hero-room"></div>
+      <div class="window"></div>
+      <div class="sun">☀️</div>
+      <div class="plant">🌿</div>
+      <div class="doodle one">每個孩子<br>都是獨特的學習者 ♡</div>
+      <div class="teacher">👩🏻‍🏫</div>
+      <div class="desk"></div>
+      <div class="books">📚 ✏️</div>
+      <div class="children">👦🏻 👧🏻</div>
+      <div class="doodle two">一起學習，一起成長</div>
     </div>
   </div>
 </section>
 
 <section class="section" id="about">
-  <div class="container about-grid">
-    <div class="note reveal">
-      <h3>關於我</h3>
-      <p>我是一名國小資源班教師，相信每個孩子都有屬於自己的學習節奏。我希望成為孩子學習路上的支持者與陪伴者，從孩子的優勢出發，找到適合自己的方法。</p>
-      <a class="btn secondary" href="#contact">了解更多 →</a>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">ABOUT ME</div>
+      <h2>關於祖筠老師</h2>
+      <p>從理解開始，陪孩子找到自己的學習節奏</p>
     </div>
-    <div class="info-list reveal">
-      <div class="info"><div class="icon">👜</div><div><b>教學年資</b><span>歡迎依實際資料修改，例如：8 年</span></div></div>
-      <div class="info"><div class="icon">🌱</div><div><b>專長領域</b><span>學習障礙、注意力、情緒行為輔導、學習策略、個別化教育計畫（IEP）</span></div></div>
-      <div class="info"><div class="icon">💚</div><div><b>教學理念</b><span>尊重差異、看見優勢，陪伴孩子找到適合自己的學習方式。</span></div></div>
+
+    <div class="about-grid">
+      <article class="paper about-card reveal">
+        <h3>一個陪伴孩子的老師</h3>
+        <p>
+          我是大安國小的資源班教師。相信每個孩子都有自己的優勢與學習節奏，
+          教育不是要求孩子變成一樣，而是陪著孩子找到適合自己的方法。
+        </p>
+        <p>
+          在資源班裡，我會依照孩子的需求調整教學內容，
+          讓學習變得更容易理解、更有成就感，也讓孩子慢慢建立「我做得到」的信心。
+        </p>
+      </article>
+
+      <div class="info-list">
+        <div class="info reveal">
+          <div class="info-icon">🏫</div>
+          <div><b>服務學校</b><span>臺北市立大安國民小學｜資源班</span></div>
+        </div>
+        <div class="info reveal">
+          <div class="info-icon">🌱</div>
+          <div><b>關注的學習面向</b><span>學習策略、閱讀理解、數學學習、注意力與社會技巧</span></div>
+        </div>
+        <div class="info reveal">
+          <div class="info-icon">🎯</div>
+          <div><b>教學理念</b><span>尊重差異、看見優勢，依孩子的需求提供適切的學習支持。</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section alt" id="courses">
   <div class="container">
-    <div class="section-title reveal"><div class="eyebrow">MY COURSES</div><h2>我的課程</h2><p>依學生需求，彈性調整教學內容</p></div>
+    <div class="section-head reveal">
+      <div class="section-label">MY COURSES</div>
+      <h2>我的課程</h2>
+      <p>依學生需求彈性調整，讓學習更貼近孩子</p>
+    </div>
+
     <div class="course-grid">
-      <article class="course reveal"><div class="circle">📕</div><div><h3>國語文</h3><p>閱讀理解・識字・寫作</p></div></article>
-      <article class="course reveal"><div class="circle">🔢</div><div><h3>數學</h3><p>基礎運算・解題策略</p></div></article>
-      <article class="course reveal"><div class="circle">🧠</div><div><h3>學習策略</h3><p>注意力・記憶・組織能力</p></div></article>
-      <article class="course reveal"><div class="circle">💬</div><div><h3>社會技巧</h3><p>情緒表達・人際互動</p></div></article>
-      <article class="course reveal"><div class="circle">⭐</div><div><h3>個別化學習</h3><p>依學生需求調整學習目標與教學方式</p></div></article>
+      <article class="course reveal"><div class="course-icon">📕</div><div><h3>國語文</h3><p>識字・閱讀理解・寫作表達</p></div></article>
+      <article class="course reveal"><div class="course-icon">🔢</div><div><h3>數學</h3><p>基礎運算・解題策略・生活應用</p></div></article>
+      <article class="course reveal"><div class="course-icon">🧠</div><div><h3>學習策略</h3><p>注意力・記憶・組織與時間管理</p></div></article>
+      <article class="course reveal"><div class="course-icon">💬</div><div><h3>社會技巧</h3><p>情緒表達・人際互動・問題解決</p></div></article>
+      <article class="course reveal"><div class="course-icon">⭐</div><div><h3>個別化學習</h3><p>依學生能力、需求與個別化教育目標調整教學</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="section" id="features">
   <div class="container">
-    <div class="section-title reveal"><div class="eyebrow">MY APPROACH</div><h2>教學特色</h2><p>用愛與專業，陪伴每個孩子</p></div>
-    <div class="feature-grid">
-      <article class="feature reveal"><div class="big">🌱</div><h3>從孩子的起點出發</h3><p>不比較進度，而是看見自己的進步。</p></article>
-      <article class="feature reveal"><div class="big">🎯</div><h3>個別化學習</h3><p>依學生能力與需求，調整教材與教學方式。</p></article>
-      <article class="feature reveal"><div class="big">🧩</div><h3>多元學習方式</h3><p>結合遊戲、圖像、操作與數位工具。</p></article>
-      <article class="feature reveal"><div class="big">🏡</div><h3>安全支持的環境</h3><p>讓孩子敢嘗試、願意表達，在關愛中建立自信。</p></article>
+    <div class="section-head reveal">
+      <div class="section-label">MY APPROACH</div>
+      <h2>教學特色</h2>
+      <p>活潑、有策略，也保留每個孩子的獨特性</p>
+    </div>
+
+    <div class="features">
+      <article class="feature reveal"><div class="feature-icon">🌱</div><h3>從孩子的起點出發</h3><p>不比較進度，而是看見孩子自己的努力與進步。</p></article>
+      <article class="feature reveal"><div class="feature-icon">🎯</div><h3>個別化學習</h3><p>依能力與需求調整教材、目標與學習方式。</p></article>
+      <article class="feature reveal"><div class="feature-icon">🧩</div><h3>多元學習方式</h3><p>結合圖像、遊戲、操作與數位工具，增加學習趣味。</p></article>
+      <article class="feature reveal"><div class="feature-icon">🏡</div><h3>安全支持環境</h3><p>讓孩子敢嘗試、願意表達，在關愛中建立自信。</p></article>
     </div>
   </div>
 </section>
 
 <section class="section alt" id="parents">
   <div class="container">
-    <div class="parent reveal">
-      <div><div style="font-size:40px">♡</div><h2>給家長的話</h2>
-        <p class="quote">每個孩子都有自己的學習節奏。我的工作不是要求孩子變成一樣，而是陪著孩子找到適合自己的方法。</p>
+    <div class="paper parent-box reveal">
+      <div>
+        <div style="font-size:38px">💛</div>
+        <h2>給家長的一段話</h2>
+        <p class="quote">
+          每個孩子都有自己的學習節奏。<br>
+          我的工作不是要求孩子變成一樣，而是陪著孩子找到適合自己的方法。
+        </p>
+        <p style="font-size:14px;color:var(--muted)">
+          歡迎家長和我一起觀察孩子、討論孩子，讓學校與家庭成為支持孩子的重要夥伴。
+        </p>
       </div>
-      <div class="portal" id="student">
-        <strong>💬 親師溝通中心</strong><span style="background:#e98b78;color:#fff;border-radius:999px;padding:3px 8px;font-size:11px;margin-left:8px">即將推出</span>
-        <ul><li>班級公告</li><li>學習進度</li><li>親師留言</li><li>個別化課表</li><li>溝通紀錄</li></ul>
-        <p style="font-size:13px;color:#718078;margin-bottom:0">未來將提供家長留言、聯絡與學習進度等功能，讓我們一起陪伴孩子成長。</p>
+
+      <div class="portal">
+        <div class="portal-title">
+          <strong>💬 親師溝通中心</strong>
+          <span class="badge">未來功能</span>
+        </div>
+        <div class="portal-grid">
+          <div class="portal-item">📢 班級公告</div>
+          <div class="portal-item">📈 學習進度</div>
+          <div class="portal-item">💌 親師留言</div>
+          <div class="portal-item">📅 個別化課表</div>
+          <div class="portal-item">📝 學習紀錄</div>
+          <div class="portal-item">🔐 家長登入</div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin:17px 0 0">
+          未來可以逐步加入親師溝通、學生個人課表與學習紀錄功能。
+        </p>
       </div>
     </div>
   </div>
@@ -190,32 +476,64 @@ footer p,footer li{font-size:13px;color:#dce9df}
 
 <section class="section" id="resources">
   <div class="container">
-    <div class="section-title reveal"><div class="eyebrow">DIGITAL RESOURCES</div><h2>數位學習資源</h2><p>豐富的學習資源，讓學習更有趣、更有效！</p></div>
+    <div class="section-head reveal">
+      <div class="section-label">DIGITAL RESOURCES</div>
+      <h2>數位學習資源</h2>
+      <p>讓孩子在課堂之外，也能用適合自己的方式學習</p>
+    </div>
+
     <div class="resource-grid">
-      <a class="resource reveal" href="#"><div class="emoji">📖</div><b>閱讀練習</b><small>文本・閱讀理解</small></a>
-      <a class="resource reveal" href="#"><div class="emoji">🧮</div><b>數學練習</b><small>基礎運算・應用題</small></a>
-      <a class="resource reveal" href="#"><div class="emoji">🎮</div><b>學習小遊戲</b><small>趣味互動・強化學習</small></a>
-      <a class="resource reveal" href="#"><div class="emoji">📝</div><b>學習單</b><small>各科題型・可列印</small></a>
-      <a class="resource reveal" href="#"><div class="emoji">💡</div><b>學習策略</b><small>時間管理・專注力</small></a>
+      <a class="resource reveal" href="#"><div class="resource-icon">📖</div><b>閱讀練習</b><small>文本・閱讀理解</small></a>
+      <a class="resource reveal" href="#"><div class="resource-icon">🧮</div><b>數學練習</b><small>運算・應用題</small></a>
+      <a class="resource reveal" href="#"><div class="resource-icon">🎮</div><b>學習小遊戲</b><small>互動・趣味學習</small></a>
+      <a class="resource reveal" href="#"><div class="resource-icon">📝</div><b>學習單</b><small>各科・可列印</small></a>
+      <a class="resource reveal" href="#"><div class="resource-icon">💡</div><b>學習策略</b><small>專注・時間管理</small></a>
+    </div>
+
+    <div class="future reveal">
+      <div><strong>✨ 未來的學習入口</strong><br><span>學生登入後，可以查看自己的課表、教材、學習任務與紀錄。</span></div>
+      <a class="btn" style="background:#fff;color:var(--green-dark)" href="#contact">了解未來規劃 →</a>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer id="contact">
   <div class="container footer-grid">
-    <div><h3>聯絡我</h3><p>🏫 服務單位：○○國小（資源班）</p><p>✉️ Email：teacher@school.edu.tw</p><p>☎️ 聯絡方式：請填寫教師聯絡資訊</p></div>
-    <div><div class="qr">QR</div><p style="text-align:center">掃描加入<br>親師溝通平台</p></div>
-    <div><p style="font-family:'Ma Shan Zheng',cursive;font-size:25px">歡迎您來到我的網站！</p><p>期待與您一起，陪伴孩子走向更好的未來。</p></div>
+    <div>
+      <h2>聯絡祖筠老師</h2>
+      <p>🏫 大安國小｜資源班</p>
+      <p>✉️ Email：teacher@school.edu.tw</p>
+      <p>☎️ 聯絡方式：請依學校規定填寫</p>
+      <span class="contact-pill">🌿 期待與您一起陪伴孩子</span>
+    </div>
+
+    <div>
+      <div class="qr">QR CODE</div>
+      <p style="text-align:center">未來可放置親師平台 QR Code</p>
+    </div>
+
+    <div>
+      <h2>一起看見孩子的可能</h2>
+      <p>每一個小小的進步，都值得被鼓勵。</p>
+      <p>謝謝家長與孩子，讓我們一起走這段學習的路。</p>
+    </div>
   </div>
-  <div class="container copyright">© 2026 祖筠老師的資源班　|　用愛與專業，陪伴每一個孩子　|　未來將持續增加互動學習功能</div>
+
+  <div class="container copyright">
+    © 2026 祖筠老師的資源班｜大安國小｜未來將持續增加互動學習功能
+  </div>
 </footer>
 
 <script>
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
 },{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
